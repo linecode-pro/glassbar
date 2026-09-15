@@ -1,0 +1,21 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+    <Platform Name="Any CPU" />
+  </Configurations>
+  <Project Path="src\TranslucentTabBar\TranslucentTabBar.csproj" Id="a1b2c3d4-e5f6-7890-abcd-ef1234567890">
+    <Platform Solution="*|ARM64" Project="ARM64" />
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+    <Platform Solution="*|Any CPU" Project="x64" />
+    <Deploy />
+  </Project>
+  <Project Path="tests\TranslucentTabBar.Tests\TranslucentTabBar.Tests.csproj" Id="b2c3d4e5-f6a7-8901-bcde-f12345678901">
+    <Platform Solution="*|ARM64" Project="ARM64" />
+    <Platform Solution="*|x64" Project="x64" />
+    <Platform Solution="*|x86" Project="x86" />
+    <Platform Solution="*|Any CPU" Project="x64" />
+  </Project>
+</Solution>

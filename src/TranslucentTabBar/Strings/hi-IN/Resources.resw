@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- App identity (referenced by Package.appxmanifest ms-resource:) -->
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Glassbar — Transparent Taskbar for Windows</value>
+  </data>
+  <data name="AppShortName" xml:space="preserve">
+    <value>Glassbar</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>अपने Windows टास्कबार को अर्ध-पारदर्शी या पूरी तरह पारदर्शी बनाएं।</value>
+  </data>
+
+  <!-- Settings Page -->
+  <data name="Settings_Language.Text" xml:space="preserve">
+    <value>भाषा</value>
+  </data>
+  <data name="Settings_LanguageCombo.PlaceholderText" xml:space="preserve">
+    <value>भाषा चुनें</value>
+  </data>
+  <data name="Settings_Desktop.Text" xml:space="preserve">
+    <value>टास्कबार</value>
+  </data>
+  <data name="DesktopAccentCombo.PlaceholderText" xml:space="preserve">
+    <value>प्रभाव</value>
+  </data>
+  <data name="DesktopColorButton.Content" xml:space="preserve">
+    <value>रंग</value>
+  </data>
+  <data name="Settings_ShowLine.Content" xml:space="preserve">
+    <value>टास्कबार लाइन दिखाएं</value>
+  </data>
+  <data name="Settings_VisibleWindow.Text" xml:space="preserve">
+    <value>दृश्यमान विंडो</value>
+  </data>
+  <data name="Settings_MaximizedWindow.Text" xml:space="preserve">
+    <value>अधिकतम विंडो</value>
+  </data>
+  <data name="Settings_StartOpened.Text" xml:space="preserve">
+    <value>स्टार्ट मेनू खुला</value>
+  </data>
+  <data name="Settings_SearchOpened.Text" xml:space="preserve">
+    <value>खोज खुली</value>
+  </data>
+  <data name="Settings_TaskViewOpened.Text" xml:space="preserve">
+    <value>टास्क दृश्य खुला</value>
+  </data>
+  <data name="Settings_BatterySaver.Text" xml:space="preserve">
+    <value>बैटरी सेवर</value>
+  </data>
+  <data name="Settings_Enabled.Header" xml:space="preserve">
+    <value>सक्रिय</value>
+  </data>
+  <data name="Settings_Advanced.Text" xml:space="preserve">
+    <value>उन्नत</value>
+  </data>
+  <data name="Settings_StartAtBoot.Header" xml:space="preserve">
+    <value>बूट पर शुरू करें</value>
+  </data>
+  <data name="Settings_DisableSaving.Header" xml:space="preserve">
+    <value>कॉन्फ़िगरेशन सहेजना अक्षम करें</value>
+  </data>
+  <data name="Settings_Help.Content" xml:space="preserve">
+    <value>सहायता</value>
+  </data>
+  <data name="Settings_ResetDefaults.Content" xml:space="preserve">
+    <value>डिफ़ॉल्ट पर रीसेट करें</value>
+  </data>
+  <data name="Settings_About.Content" xml:space="preserve">
+    <value>Glassbar के बारे में</value>
+  </data>
+  <data name="Settings_Exit.Content" xml:space="preserve">
+    <value>बाहर निकलें</value>
+  </data>
+
+  <!-- Tray Context Menu -->
+  <data name="Tray_Settings" xml:space="preserve">
+    <value>सेटिंग्स</value>
+  </data>
+  <data name="Tray_OpenConfig" xml:space="preserve">
+    <value>settings.json खोलें</value>
+  </data>
+  <data name="Tray_OpenAtBoot" xml:space="preserve">
+    <value>बूट पर खोलें</value>
+  </data>
+  <data name="Tray_About" xml:space="preserve">
+    <value>के बारे में</value>
+  </data>
+  <data name="Tray_Exit" xml:space="preserve">
+    <value>बाहर निकलें</value>
+  </data>
+  <data name="Tray_Desktop" xml:space="preserve">
+    <value>टास्कबार</value>
+  </data>
+  <data name="Tray_VisibleWindow" xml:space="preserve">
+    <value>दृश्यमान विंडो</value>
+  </data>
+  <data name="Tray_MaximizedWindow" xml:space="preserve">
+    <value>अधिकतम विंडो</value>
+  </data>
+  <data name="Tray_StartOpened" xml:space="preserve">
+    <value>स्टार्ट मेनू खुला</value>
+  </data>
+  <data name="Tray_SearchOpened" xml:space="preserve">
+    <value>खोज खुली</value>
+  </data>
+  <data name="Tray_TaskViewOpened" xml:space="preserve">
+    <value>टास्क दृश्य खुला</value>
+  </data>
+  <data name="Tray_BatterySaver" xml:space="preserve">
+    <value>बैटरी सेवर</value>
+  </data>
+  <data name="Tray_ShowPeek" xml:space="preserve">
+    <value>Peek दिखाएं</value>
+  </data>
+  <data name="Tray_ShowLine" xml:space="preserve">
+    <value>लाइन दिखाएं</value>
+  </data>
+  <data name="Tray_Enabled" xml:space="preserve">
+    <value>सक्रिय</value>
+  </data>
+  <data name="Tray_Color" xml:space="preserve">
+    <value>रंग...</value>
+  </data>
+
+  <!-- Accent Modes -->
+  <data name="Accent_Normal" xml:space="preserve">
+    <value>सामान्य</value>
+  </data>
+  <data name="Accent_Opaque" xml:space="preserve">
+    <value>अपारदर्शी</value>
+  </data>
+  <data name="Accent_Clear" xml:space="preserve">
+    <value>पारदर्शी</value>
+  </data>
+  <data name="Accent_Blur" xml:space="preserve">
+    <value>धुंधला</value>
+  </data>
+  <data name="Accent_Acrylic" xml:space="preserve">
+    <value>एक्रिलिक</value>
+  </data>
+
+  <!-- Color Picker -->
+  <data name="ColorPicker_Title" xml:space="preserve">
+    <value>टास्कबार रंग</value>
+  </data>
+  <data name="ColorPicker_Header.Text" xml:space="preserve">
+    <value>टास्कबार रंग सेटिंग्स</value>
+  </data>
+  <data name="ColorPicker_Description.Text" xml:space="preserve">
+    <value>रंग टिंट और अपारदर्शिता चुनें (Alpha स्लाइडर)। सहेजने के लिए लागू करें पर क्लिक करें।</value>
+  </data>
+  <data name="ColorPicker_Ok.Content" xml:space="preserve">
+    <value>लागू करें</value>
+  </data>
+  <data name="ColorPicker_Reset.Content" xml:space="preserve">
+    <value>रीसेट</value>
+  </data>
+  <data name="ColorPicker_Cancel.Content" xml:space="preserve">
+    <value>रद्द करें</value>
+  </data>
+
+  <!-- Welcome Page -->
+  <data name="Welcome_Title.Text" xml:space="preserve">
+    <value>Glassbar में आपका स्वागत है</value>
+  </data>
+  <data name="Welcome_Subtitle.Text" xml:space="preserve">
+    <value>अपने Windows टास्कबार को पारदर्शी बनाएं</value>
+  </data>
+  <data name="Welcome_Description.Text" xml:space="preserve">
+    <value>Glassbar एक हल्की उपयोगिता है जो Windows टास्कबार को पारदर्शी/अर्ध-पारदर्शी बनाती है। यह गतिशील मोड का समर्थन करता है जो विंडो स्थितियों के आधार पर टास्कबार की उपस्थिति बदलता है।</value>
+  </data>
+  <data name="Welcome_GitHub.Content" xml:space="preserve">
+    <value>GitHub पर जाएं</value>
+  </data>
+  <data name="Welcome_Version.Text" xml:space="preserve">
+    <value>संस्करण 1.0.0</value>
+  </data>
+  <data name="Welcome_OK.Content" xml:space="preserve">
+    <value>ठीक है</value>
+  </data>
+  <data name="Settings_BlurRadius.Header" xml:space="preserve">
+    <value>धुंधला त्रिज्या</value>
+  </data>
+</root>

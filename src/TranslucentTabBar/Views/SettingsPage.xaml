@@ -1,0 +1,181 @@
+<Page
+    x:Class="TranslucentTabBar.Views.SettingsPage"
+    x:Uid="SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <Style x:Key="ColorButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="32" />
+            <Setter Property="Height" Value="32" />
+            <Setter Property="MinWidth" Value="32" />
+            <Setter Property="MinHeight" Value="32" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="FontSize" Value="14" />
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+    </Page.Resources>
+
+    <ScrollViewer>
+        <StackPanel Padding="16" Spacing="8">
+            <!-- Language Selector -->
+            <TextBlock x:Name="LanguageLabel" x:Uid="Settings_Language" Style="{StaticResource BodyStrongTextBlockStyle}" Margin="0,0,0,4" />
+            <ComboBox x:Name="LanguageCombo"
+                      x:Uid="Settings_LanguageCombo"
+                      Width="200"
+                      HorizontalAlignment="Left"
+                      SelectionChanged="OnLanguageChanged" />
+
+            <Rectangle Height="1" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" Margin="0,4" />
+
+            <!-- Desktop Appearance -->
+            <TextBlock x:Name="DesktopLabel" x:Uid="Settings_Desktop" Style="{StaticResource BodyStrongTextBlockStyle}" />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ComboBox x:Name="DesktopAccentCombo" x:Uid="DesktopAccentCombo" Width="180" SelectedIndex="2" />
+                <Button x:Name="DesktopColorButton" x:Uid="DesktopColorButton" Style="{StaticResource ColorButtonStyle}"
+                        Click="OnDesktopColorClicked" />
+            </StackPanel>
+            <CheckBox x:Name="DesktopShowLine" x:Uid="Settings_ShowLine" IsChecked="True" />
+            <Slider x:Name="DesktopBlurRadius" x:Uid="DesktopBlurRadius"
+                    Minimum="0" Maximum="100" StepFrequency="1" Value="9"
+                    Width="200" HorizontalAlignment="Left" />
+
+            <Rectangle Height="1" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" Margin="0,4" />
+
+            <!-- Visible Window -->
+            <TextBlock x:Name="VisibleWindowLabel" x:Uid="Settings_VisibleWindow" Style="{StaticResource BodyStrongTextBlockStyle}" />
+            <ToggleSwitch x:Name="VisibleWindowEnabled" x:Uid="Settings_Enabled" />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ComboBox x:Name="VisibleAccentCombo" x:Uid="VisibleAccentCombo" Width="180" SelectedIndex="2" />
+                <Button x:Name="VisibleColorButton" x:Uid="VisibleColorButton" Style="{StaticResource ColorButtonStyle}"
+                        Click="OnVisibleColorClicked" />
+            </StackPanel>
+            <Slider x:Name="VisibleBlurRadius" x:Uid="VisibleBlurRadius"
+                    Minimum="0" Maximum="100" StepFrequency="1" Value="9"
+                    Width="200" HorizontalAlignment="Left" />
+
+            <Rectangle Height="1" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" Margin="0,4" />
+
+            <!-- Maximized Window -->
+            <TextBlock x:Name="MaximizedWindowLabel" x:Uid="Settings_MaximizedWindow" Style="{StaticResource BodyStrongTextBlockStyle}" />
+            <ToggleSwitch x:Name="MaximizedWindowEnabled" x:Uid="Settings_Enabled" />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ComboBox x:Name="MaximizedAccentCombo" x:Uid="MaximizedAccentCombo" Width="180" SelectedIndex="4" />
+                <Button x:Name="MaximizedColorButton" x:Uid="MaximizedColorButton" Style="{StaticResource ColorButtonStyle}"
+                        Click="OnMaximizedColorClicked" />
+            </StackPanel>
+            <Slider x:Name="MaximizedBlurRadius" x:Uid="MaximizedBlurRadius"
+                    Minimum="0" Maximum="100" StepFrequency="1" Value="9"
+                    Width="200" HorizontalAlignment="Left" />
+
+            <Rectangle Height="1" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" Margin="0,4" />
+
+            <!-- Start Opened -->
+            <TextBlock x:Name="StartOpenedLabel" x:Uid="Settings_StartOpened" Style="{StaticResource BodyStrongTextBlockStyle}" />
+            <ToggleSwitch x:Name="StartOpenedEnabled" x:Uid="Settings_Enabled" />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ComboBox x:Name="StartAccentCombo" x:Uid="StartAccentCombo" Width="180" SelectedIndex="0" />
+                <Button x:Name="StartColorButton" x:Uid="StartColorButton" Style="{StaticResource ColorButtonStyle}"
+                        Click="OnStartColorClicked" />
+            </StackPanel>
+            <Slider x:Name="StartBlurRadius" x:Uid="StartBlurRadius"
+                    Minimum="0" Maximum="100" StepFrequency="1" Value="9"
+                    Width="200" HorizontalAlignment="Left" />
+
+            <Rectangle Height="1" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" Margin="0,4" />
+
+            <!-- Search Opened -->
+            <TextBlock x:Name="SearchOpenedLabel" x:Uid="Settings_SearchOpened" Style="{StaticResource BodyStrongTextBlockStyle}" />
+            <ToggleSwitch x:Name="SearchOpenedEnabled" x:Uid="Settings_Enabled" />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ComboBox x:Name="SearchAccentCombo" x:Uid="SearchAccentCombo" Width="180" SelectedIndex="0" />
+                <Button x:Name="SearchColorButton" x:Uid="SearchColorButton" Style="{StaticResource ColorButtonStyle}"
+                        Click="OnSearchColorClicked" />
+            </StackPanel>
+            <Slider x:Name="SearchBlurRadius" x:Uid="SearchBlurRadius"
+                    Minimum="0" Maximum="100" StepFrequency="1" Value="9"
+                    Width="200" HorizontalAlignment="Left" />
+
+            <Rectangle Height="1" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" Margin="0,4" />
+
+            <!-- Task View Opened -->
+            <TextBlock x:Name="TaskViewOpenedLabel" x:Uid="Settings_TaskViewOpened" Style="{StaticResource BodyStrongTextBlockStyle}" />
+            <ToggleSwitch x:Name="TaskViewOpenedEnabled" x:Uid="Settings_Enabled" />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ComboBox x:Name="TaskViewAccentCombo" x:Uid="TaskViewAccentCombo" Width="180" SelectedIndex="0" />
+                <Button x:Name="TaskViewColorButton" x:Uid="TaskViewColorButton" Style="{StaticResource ColorButtonStyle}"
+                        Click="OnTaskViewColorClicked" />
+            </StackPanel>
+            <Slider x:Name="TaskViewBlurRadius" x:Uid="TaskViewBlurRadius"
+                    Minimum="0" Maximum="100" StepFrequency="1" Value="9"
+                    Width="200" HorizontalAlignment="Left" />
+
+            <Rectangle Height="1" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" Margin="0,4" />
+
+            <!-- Battery Saver -->
+            <TextBlock x:Name="BatterySaverLabel" x:Uid="Settings_BatterySaver" Style="{StaticResource BodyStrongTextBlockStyle}" />
+            <ToggleSwitch x:Name="BatterySaverEnabled" x:Uid="Settings_Enabled" />
+            <StackPanel Orientation="Horizontal" Spacing="8">
+                <ComboBox x:Name="BatteryAccentCombo" x:Uid="BatteryAccentCombo" Width="180" SelectedIndex="1" />
+                <Button x:Name="BatteryColorButton" x:Uid="BatteryColorButton" Style="{StaticResource ColorButtonStyle}"
+                        Click="OnBatteryColorClicked" />
+            </StackPanel>
+            <Slider x:Name="BatteryBlurRadius" x:Uid="BatteryBlurRadius"
+                    Minimum="0" Maximum="100" StepFrequency="1" Value="9"
+                    Width="200" HorizontalAlignment="Left" />
+
+            <Rectangle Height="1" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" Margin="0,4" />
+
+            <!-- Advanced Settings -->
+            <TextBlock x:Name="AdvancedLabel" x:Uid="Settings_Advanced" Style="{StaticResource BodyStrongTextBlockStyle}" />
+            <ToggleSwitch x:Name="StartAtBootToggle" x:Uid="Settings_StartAtBoot" />
+            <ToggleSwitch x:Name="DisableSavingToggle" x:Uid="Settings_DisableSaving" />
+
+            <Rectangle Height="1" Fill="{ThemeResource DividerStrokeColorDefaultBrush}" Margin="0,4" />
+
+            <!-- Actions -->
+            <Button x:Name="HelpButton" Click="OnHelpClicked"
+                    HorizontalAlignment="Left">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE897;" />
+                        <TextBlock x:Name="HelpText" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button x:Name="ResetDefaultsButton" Click="OnResetDefaultsClicked"
+                    HorizontalAlignment="Left"
+                    Foreground="{ThemeResource SystemFillColorCriticalBrush}">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE72C;" Foreground="{ThemeResource SystemFillColorCriticalBrush}" />
+                        <TextBlock x:Name="ResetText" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button x:Name="AboutButton" Click="OnAboutClicked"
+                    HorizontalAlignment="Left">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE946;" />
+                        <TextBlock x:Name="AboutText" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            <Button x:Name="ExitButton" Click="OnExitClicked"
+                    HorizontalAlignment="Left">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <FontIcon Glyph="&#xE106;" />
+                        <TextBlock x:Name="ExitText" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

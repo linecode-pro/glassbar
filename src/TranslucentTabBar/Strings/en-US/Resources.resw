@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- App identity (referenced by Package.appxmanifest ms-resource:) -->
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Glassbar — Transparent Taskbar for Windows</value>
+  </data>
+  <data name="AppShortName" xml:space="preserve">
+    <value>Glassbar</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>Make your Windows taskbar translucent or fully transparent.</value>
+  </data>
+
+  <!-- Settings Page -->
+  <data name="Settings_Language.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Settings_LanguageCombo.PlaceholderText" xml:space="preserve">
+    <value>Select language</value>
+  </data>
+  <data name="Settings_Desktop.Text" xml:space="preserve">
+    <value>Taskbar</value>
+  </data>
+  <data name="DesktopAccentCombo.PlaceholderText" xml:space="preserve">
+    <value>Effect</value>
+  </data>
+  <data name="DesktopColorButton.Content" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="Settings_ShowLine.Content" xml:space="preserve">
+    <value>Show taskbar line</value>
+  </data>
+  <data name="Settings_VisibleWindow.Text" xml:space="preserve">
+    <value>Visible Window</value>
+  </data>
+  <data name="Settings_MaximizedWindow.Text" xml:space="preserve">
+    <value>Maximized Window</value>
+  </data>
+  <data name="Settings_StartOpened.Text" xml:space="preserve">
+    <value>Start Menu Opened</value>
+  </data>
+  <data name="Settings_SearchOpened.Text" xml:space="preserve">
+    <value>Search Opened</value>
+  </data>
+  <data name="Settings_TaskViewOpened.Text" xml:space="preserve">
+    <value>Task View Opened</value>
+  </data>
+  <data name="Settings_BatterySaver.Text" xml:space="preserve">
+    <value>Battery Saver</value>
+  </data>
+  <data name="Settings_Enabled.Header" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="Settings_Advanced.Text" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="Settings_StartAtBoot.Header" xml:space="preserve">
+    <value>Start with Windows</value>
+  </data>
+  <data name="Settings_DisableSaving.Header" xml:space="preserve">
+    <value>Disable saving configuration</value>
+  </data>
+  <data name="Settings_Help.Content" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Settings_ResetDefaults.Content" xml:space="preserve">
+    <value>Reset to Defaults</value>
+  </data>
+  <data name="Settings_About.Content" xml:space="preserve">
+    <value>About Glassbar</value>
+  </data>
+  <data name="Settings_Exit.Content" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+
+  <!-- Tray Context Menu -->
+  <data name="Tray_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="Tray_OpenConfig" xml:space="preserve">
+    <value>Open settings.json</value>
+  </data>
+  <data name="Tray_OpenAtBoot" xml:space="preserve">
+    <value>Open at boot</value>
+  </data>
+  <data name="Tray_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Tray_Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Tray_Desktop" xml:space="preserve">
+    <value>Desktop</value>
+  </data>
+  <data name="Tray_VisibleWindow" xml:space="preserve">
+    <value>Visible Window</value>
+  </data>
+  <data name="Tray_MaximizedWindow" xml:space="preserve">
+    <value>Maximized Window</value>
+  </data>
+  <data name="Tray_StartOpened" xml:space="preserve">
+    <value>Start Opened</value>
+  </data>
+  <data name="Tray_SearchOpened" xml:space="preserve">
+    <value>Search Opened</value>
+  </data>
+  <data name="Tray_TaskViewOpened" xml:space="preserve">
+    <value>Task View Opened</value>
+  </data>
+  <data name="Tray_BatterySaver" xml:space="preserve">
+    <value>Battery Saver</value>
+  </data>
+  <data name="Tray_ShowPeek" xml:space="preserve">
+    <value>Show Peek</value>
+  </data>
+  <data name="Tray_ShowLine" xml:space="preserve">
+    <value>Show Line</value>
+  </data>
+  <data name="Tray_Enabled" xml:space="preserve">
+    <value>Enabled</value>
+  </data>
+  <data name="Tray_Color" xml:space="preserve">
+    <value>Color...</value>
+  </data>
+
+  <!-- Accent Modes -->
+  <data name="Accent_Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="Accent_Opaque" xml:space="preserve">
+    <value>Opaque</value>
+  </data>
+  <data name="Accent_Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="Accent_Blur" xml:space="preserve">
+    <value>Blur</value>
+  </data>
+  <data name="Accent_Acrylic" xml:space="preserve">
+    <value>Acrylic</value>
+  </data>
+
+  <!-- Color Picker -->
+  <data name="ColorPicker_Title" xml:space="preserve">
+    <value>Taskbar Color</value>
+  </data>
+  <data name="ColorPicker_Header.Text" xml:space="preserve">
+    <value>Taskbar Color Settings</value>
+  </data>
+  <data name="ColorPicker_Description.Text" xml:space="preserve">
+    <value>Select a color tint and opacity (Alpha slider). Click Apply to save.</value>
+  </data>
+  <data name="ColorPicker_Ok.Content" xml:space="preserve">
+    <value>Apply</value>
+  </data>
+  <data name="ColorPicker_Reset.Content" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="ColorPicker_Cancel.Content" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+
+  <!-- Welcome Page -->
+  <data name="Welcome_Title.Text" xml:space="preserve">
+    <value>Welcome to Glassbar</value>
+  </data>
+  <data name="Welcome_Subtitle.Text" xml:space="preserve">
+    <value>Make your Windows taskbar translucent</value>
+  </data>
+  <data name="Welcome_Description.Text" xml:space="preserve">
+    <value>Glassbar is a lightweight utility that makes the Windows taskbar translucent/transparent. It supports dynamic modes that change the taskbar appearance based on window states.</value>
+  </data>
+  <data name="Welcome_GitHub.Content" xml:space="preserve">
+    <value>Visit on GitHub</value>
+  </data>
+  <data name="Welcome_Version.Text" xml:space="preserve">
+    <value>Version 1.0.0</value>
+  </data>
+  <data name="Welcome_OK.Content" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Settings_BlurRadius.Header" xml:space="preserve">
+    <value>Blur Radius</value>
+  </data>
+</root>

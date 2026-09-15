@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- App identity (referenced by Package.appxmanifest ms-resource:) -->
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Glassbar — Transparent Taskbar for Windows</value>
+  </data>
+  <data name="AppShortName" xml:space="preserve">
+    <value>Glassbar</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>让 Windows 任务栏呈半透明或完全透明。</value>
+  </data>
+
+  <!-- Settings Page -->
+  <data name="Settings_Language.Text" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="Settings_LanguageCombo.PlaceholderText" xml:space="preserve">
+    <value>选择语言</value>
+  </data>
+  <data name="Settings_Desktop.Text" xml:space="preserve">
+    <value>任务栏</value>
+  </data>
+  <data name="DesktopAccentCombo.PlaceholderText" xml:space="preserve">
+    <value>效果</value>
+  </data>
+  <data name="DesktopColorButton.Content" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="Settings_ShowLine.Content" xml:space="preserve">
+    <value>显示任务栏线条</value>
+  </data>
+  <data name="Settings_VisibleWindow.Text" xml:space="preserve">
+    <value>可见窗口</value>
+  </data>
+  <data name="Settings_MaximizedWindow.Text" xml:space="preserve">
+    <value>最大化窗口</value>
+  </data>
+  <data name="Settings_StartOpened.Text" xml:space="preserve">
+    <value>开始菜单已打开</value>
+  </data>
+  <data name="Settings_SearchOpened.Text" xml:space="preserve">
+    <value>搜索已打开</value>
+  </data>
+  <data name="Settings_TaskViewOpened.Text" xml:space="preserve">
+    <value>任务视图已打开</value>
+  </data>
+  <data name="Settings_BatterySaver.Text" xml:space="preserve">
+    <value>省电模式</value>
+  </data>
+  <data name="Settings_Enabled.Header" xml:space="preserve">
+    <value>已启用</value>
+  </data>
+  <data name="Settings_Advanced.Text" xml:space="preserve">
+    <value>高级</value>
+  </data>
+  <data name="Settings_StartAtBoot.Header" xml:space="preserve">
+    <value>开机启动</value>
+  </data>
+  <data name="Settings_DisableSaving.Header" xml:space="preserve">
+    <value>禁用保存配置</value>
+  </data>
+  <data name="Settings_Help.Content" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Settings_ResetDefaults.Content" xml:space="preserve">
+    <value>恢复默认设置</value>
+  </data>
+  <data name="Settings_About.Content" xml:space="preserve">
+    <value>关于 Glassbar</value>
+  </data>
+  <data name="Settings_Exit.Content" xml:space="preserve">
+    <value>退出</value>
+  </data>
+
+  <!-- Tray Context Menu -->
+  <data name="Tray_Settings" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="Tray_OpenConfig" xml:space="preserve">
+    <value>打开 settings.json</value>
+  </data>
+  <data name="Tray_OpenAtBoot" xml:space="preserve">
+    <value>开机启动</value>
+  </data>
+  <data name="Tray_About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="Tray_Exit" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="Tray_Desktop" xml:space="preserve">
+    <value>任务栏</value>
+  </data>
+  <data name="Tray_VisibleWindow" xml:space="preserve">
+    <value>可见窗口</value>
+  </data>
+  <data name="Tray_MaximizedWindow" xml:space="preserve">
+    <value>最大化窗口</value>
+  </data>
+  <data name="Tray_StartOpened" xml:space="preserve">
+    <value>开始菜单已打开</value>
+  </data>
+  <data name="Tray_SearchOpened" xml:space="preserve">
+    <value>搜索已打开</value>
+  </data>
+  <data name="Tray_TaskViewOpened" xml:space="preserve">
+    <value>任务视图已打开</value>
+  </data>
+  <data name="Tray_BatterySaver" xml:space="preserve">
+    <value>省电模式</value>
+  </data>
+  <data name="Tray_ShowPeek" xml:space="preserve">
+    <value>显示 Aero Peek</value>
+  </data>
+  <data name="Tray_ShowLine" xml:space="preserve">
+    <value>显示线条</value>
+  </data>
+  <data name="Tray_Enabled" xml:space="preserve">
+    <value>已启用</value>
+  </data>
+  <data name="Tray_Color" xml:space="preserve">
+    <value>颜色...</value>
+  </data>
+
+  <!-- Accent Modes -->
+  <data name="Accent_Normal" xml:space="preserve">
+    <value>正常</value>
+  </data>
+  <data name="Accent_Opaque" xml:space="preserve">
+    <value>不透明</value>
+  </data>
+  <data name="Accent_Clear" xml:space="preserve">
+    <value>透明</value>
+  </data>
+  <data name="Accent_Blur" xml:space="preserve">
+    <value>模糊</value>
+  </data>
+  <data name="Accent_Acrylic" xml:space="preserve">
+    <value>亚克力</value>
+  </data>
+
+  <!-- Color Picker -->
+  <data name="ColorPicker_Title" xml:space="preserve">
+    <value>任务栏颜色</value>
+  </data>
+  <data name="ColorPicker_Header.Text" xml:space="preserve">
+    <value>任务栏颜色设置</value>
+  </data>
+  <data name="ColorPicker_Description.Text" xml:space="preserve">
+    <value>选择颜色色调和不透明度（Alpha 滑块）。点击应用保存。</value>
+  </data>
+  <data name="ColorPicker_Ok.Content" xml:space="preserve">
+    <value>应用</value>
+  </data>
+  <data name="ColorPicker_Reset.Content" xml:space="preserve">
+    <value>重置</value>
+  </data>
+  <data name="ColorPicker_Cancel.Content" xml:space="preserve">
+    <value>取消</value>
+  </data>
+
+  <!-- Welcome Page -->
+  <data name="Welcome_Title.Text" xml:space="preserve">
+    <value>欢迎使用 Glassbar</value>
+  </data>
+  <data name="Welcome_Subtitle.Text" xml:space="preserve">
+    <value>让 Windows 任务栏变得透明</value>
+  </data>
+  <data name="Welcome_Description.Text" xml:space="preserve">
+    <value>Glassbar 是一个轻量级工具，可使 Windows 任务栏半透明/透明。它支持动态模式，可根据窗口状态更改任务栏外观。</value>
+  </data>
+  <data name="Welcome_GitHub.Content" xml:space="preserve">
+    <value>访问 GitHub</value>
+  </data>
+  <data name="Welcome_Version.Text" xml:space="preserve">
+    <value>版本 1.0.0</value>
+  </data>
+  <data name="Welcome_OK.Content" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="Settings_BlurRadius.Header" xml:space="preserve">
+    <value>模糊半径</value>
+  </data>
+</root>

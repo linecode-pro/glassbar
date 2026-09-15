@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- App identity (referenced by Package.appxmanifest ms-resource:) -->
+  <data name="AppDisplayName" xml:space="preserve">
+    <value>Glassbar — Transparent Taskbar for Windows</value>
+  </data>
+  <data name="AppShortName" xml:space="preserve">
+    <value>Glassbar</value>
+  </data>
+  <data name="AppDescription" xml:space="preserve">
+    <value>আপনার Windows টাস্কবারকে আধা স্বচ্ছ বা সম্পূর্ণ স্বচ্ছ করুন।</value>
+  </data>
+
+  <!-- Settings Page -->
+  <data name="Settings_Language.Text" xml:space="preserve">
+    <value>ভাষা</value>
+  </data>
+  <data name="Settings_LanguageCombo.PlaceholderText" xml:space="preserve">
+    <value>ভাষা নির্বাচন করুন</value>
+  </data>
+  <data name="Settings_Desktop.Text" xml:space="preserve">
+    <value>টাস্কবার</value>
+  </data>
+  <data name="DesktopAccentCombo.PlaceholderText" xml:space="preserve">
+    <value>প্রভাব</value>
+  </data>
+  <data name="DesktopColorButton.Content" xml:space="preserve">
+    <value>রঙ</value>
+  </data>
+  <data name="Settings_ShowLine.Content" xml:space="preserve">
+    <value>টাস্কবার লাইন দেখান</value>
+  </data>
+  <data name="Settings_VisibleWindow.Text" xml:space="preserve">
+    <value>দৃশ্যমান উইন্ডো</value>
+  </data>
+  <data name="Settings_MaximizedWindow.Text" xml:space="preserve">
+    <value>সর্বোচ্চ উইন্ডো</value>
+  </data>
+  <data name="Settings_StartOpened.Text" xml:space="preserve">
+    <value>স্টার্ট মেনু খোলা</value>
+  </data>
+  <data name="Settings_SearchOpened.Text" xml:space="preserve">
+    <value>অনুসন্ধান খোলা</value>
+  </data>
+  <data name="Settings_TaskViewOpened.Text" xml:space="preserve">
+    <value>টাস্ক ভিউ খোলা</value>
+  </data>
+  <data name="Settings_BatterySaver.Text" xml:space="preserve">
+    <value>ব্যাটারি সেভার</value>
+  </data>
+  <data name="Settings_Enabled.Header" xml:space="preserve">
+    <value>সক্রিয়</value>
+  </data>
+  <data name="Settings_Advanced.Text" xml:space="preserve">
+    <value>উন্নত</value>
+  </data>
+  <data name="Settings_StartAtBoot.Header" xml:space="preserve">
+    <value>বুটে শুরু করুন</value>
+  </data>
+  <data name="Settings_DisableSaving.Header" xml:space="preserve">
+    <value>কনফিগারেশন সংরক্ষণ নিষ্ক্রিয় করুন</value>
+  </data>
+  <data name="Settings_Help.Content" xml:space="preserve">
+    <value>সাহায্য</value>
+  </data>
+  <data name="Settings_ResetDefaults.Content" xml:space="preserve">
+    <value>ডিফল্টে রিসেট করুন</value>
+  </data>
+  <data name="Settings_About.Content" xml:space="preserve">
+    <value>Glassbar সম্পর্কে</value>
+  </data>
+  <data name="Settings_Exit.Content" xml:space="preserve">
+    <value>প্রস্থান</value>
+  </data>
+
+  <!-- Tray Context Menu -->
+  <data name="Tray_Settings" xml:space="preserve">
+    <value>সেটিংস</value>
+  </data>
+  <data name="Tray_OpenConfig" xml:space="preserve">
+    <value>settings.json খুলুন</value>
+  </data>
+  <data name="Tray_OpenAtBoot" xml:space="preserve">
+    <value>বুটে খুলুন</value>
+  </data>
+  <data name="Tray_About" xml:space="preserve">
+    <value>সম্পর্কে</value>
+  </data>
+  <data name="Tray_Exit" xml:space="preserve">
+    <value>প্রস্থান</value>
+  </data>
+  <data name="Tray_Desktop" xml:space="preserve">
+    <value>টাস্কবার</value>
+  </data>
+  <data name="Tray_VisibleWindow" xml:space="preserve">
+    <value>দৃশ্যমান উইন্ডো</value>
+  </data>
+  <data name="Tray_MaximizedWindow" xml:space="preserve">
+    <value>সর্বোচ্চ উইন্ডো</value>
+  </data>
+  <data name="Tray_StartOpened" xml:space="preserve">
+    <value>স্টার্ট মেনু খোলা</value>
+  </data>
+  <data name="Tray_SearchOpened" xml:space="preserve">
+    <value>অনুসন্ধান খোলা</value>
+  </data>
+  <data name="Tray_TaskViewOpened" xml:space="preserve">
+    <value>টাস্ক ভিউ খোলা</value>
+  </data>
+  <data name="Tray_BatterySaver" xml:space="preserve">
+    <value>ব্যাটারি সেভার</value>
+  </data>
+  <data name="Tray_ShowPeek" xml:space="preserve">
+    <value>Peek দেখান</value>
+  </data>
+  <data name="Tray_ShowLine" xml:space="preserve">
+    <value>লাইন দেখান</value>
+  </data>
+  <data name="Tray_Enabled" xml:space="preserve">
+    <value>সক্রিয়</value>
+  </data>
+  <data name="Tray_Color" xml:space="preserve">
+    <value>রঙ...</value>
+  </data>
+
+  <!-- Accent Modes -->
+  <data name="Accent_Normal" xml:space="preserve">
+    <value>সাধারণ</value>
+  </data>
+  <data name="Accent_Opaque" xml:space="preserve">
+    <value>অস্বচ্ছ</value>
+  </data>
+  <data name="Accent_Clear" xml:space="preserve">
+    <value>স্বচ্ছ</value>
+  </data>
+  <data name="Accent_Blur" xml:space="preserve">
+    <value>ঝাপসা</value>
+  </data>
+  <data name="Accent_Acrylic" xml:space="preserve">
+    <value>এক্রিলিক</value>
+  </data>
+
+  <!-- Color Picker -->
+  <data name="ColorPicker_Title" xml:space="preserve">
+    <value>টাস্কবার রঙ</value>
+  </data>
+  <data name="ColorPicker_Header.Text" xml:space="preserve">
+    <value>টাস্কবার রঙ সেটিংস</value>
+  </data>
+  <data name="ColorPicker_Description.Text" xml:space="preserve">
+    <value>একটি রঙের টিন্ট এবং অস্বচ্ছতা নির্বাচন করুন (Alpha স্লাইডার)। সংরক্ষণ করতে প্রয়োগ করুন ক্লিক করুন।</value>
+  </data>
+  <data name="ColorPicker_Ok.Content" xml:space="preserve">
+    <value>প্রয়োগ করুন</value>
+  </data>
+  <data name="ColorPicker_Reset.Content" xml:space="preserve">
+    <value>রিসেট</value>
+  </data>
+  <data name="ColorPicker_Cancel.Content" xml:space="preserve">
+    <value>বাতিল</value>
+  </data>
+
+  <!-- Welcome Page -->
+  <data name="Welcome_Title.Text" xml:space="preserve">
+    <value>Glassbar এ স্বাগতম</value>
+  </data>
+  <data name="Welcome_Subtitle.Text" xml:space="preserve">
+    <value>আপনার Windows টাস্কবারকে স্বচ্ছ করুন</value>
+  </data>
+  <data name="Welcome_Description.Text" xml:space="preserve">
+    <value>Glassbar একটি হালকা ইউটিলিটি যা Windows টাস্কবারকে স্বচ্ছ/আধা-স্বচ্ছ করে তোলে। এটি গতিশীল মোড সমর্থন করে যা উইন্ডো অবস্থার উপর ভিত্তি করে টাস্কবারের চেহারা পরিবর্তন করে।</value>
+  </data>
+  <data name="Welcome_GitHub.Content" xml:space="preserve">
+    <value>GitHub এ যান</value>
+  </data>
+  <data name="Welcome_Version.Text" xml:space="preserve">
+    <value>সংস্করণ 1.0.0</value>
+  </data>
+  <data name="Welcome_OK.Content" xml:space="preserve">
+    <value>ঠিক আছে</value>
+  </data>
+  <data name="Settings_BlurRadius.Header" xml:space="preserve">
+    <value>ঝাপসার ব্যাসার্ধ</value>
+  </data>
+</root>

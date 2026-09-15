@@ -1,0 +1,73 @@
+<Page
+    x:Class="TranslucentTabBar.Views.ColorPickerPage"
+    x:Uid="ColorPickerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+        <StackPanel Margin="20,16,20,20" Spacing="14">
+            <StackPanel Spacing="4">
+                <TextBlock
+                    x:Name="HeaderText"
+                    x:Uid="ColorPicker_Header"
+                    Text="Настройка цвета панели задач"
+                    Style="{ThemeResource SubtitleTextBlockStyle}" />
+                <TextBlock
+                    x:Name="DescriptionText"
+                    x:Uid="ColorPicker_Description"
+                    Text="Выберите оттенок и прозрачность (ползунок непрозрачности Alpha). Нажмите «Применить» для сохранения."
+                    Style="{ThemeResource CaptionTextBlockStyle}"
+                    Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                    TextWrapping="Wrap" />
+            </StackPanel>
+
+            <ColorPicker
+                x:Name="Picker"
+                IsAlphaEnabled="True"
+                IsAlphaSliderVisible="True"
+                IsColorChannelTextInputVisible="True"
+                IsHexInputVisible="True"
+                ColorChanged="OnColorChanged"
+                HorizontalAlignment="Center" />
+
+            <Grid Height="40" Margin="0,10,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    x:Name="OkButton"
+                    Grid.Column="0"
+                    x:Uid="ColorPicker_Ok"
+                    Content="Применить"
+                    Style="{ThemeResource AccentButtonStyle}"
+                    HorizontalAlignment="Stretch"
+                    Margin="0,0,4,0"
+                    Click="OnOkButtonClicked" />
+
+                <Button
+                    x:Name="ResetButton"
+                    Grid.Column="1"
+                    x:Uid="ColorPicker_Reset"
+                    Content="Сбросить"
+                    HorizontalAlignment="Stretch"
+                    Margin="4,0,4,0"
+                    Click="OnResetButtonClicked" />
+
+                <Button
+                    x:Name="CancelButton"
+                    Grid.Column="2"
+                    x:Uid="ColorPicker_Cancel"
+                    Content="Отмена"
+                    HorizontalAlignment="Stretch"
+                    Margin="4,0,0,0"
+                    Click="OnCancelButtonClicked" />
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

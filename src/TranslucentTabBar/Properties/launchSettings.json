@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TranslucentTabBar (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TranslucentTabBar (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

@@ -1,0 +1,57 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+AppPackages/
+BundleArtifacts/
+*.log
+
+# Packaged app outputs
+*.appx
+*.msix
+*.appxbundle
+*.msixbundle
+*.appxupload
+*.msixupload
+
+# Certificates and keys — никогда не публиковать
+*.pfx
+*.snk
+*.cer
+*.pem
+*.key
+
+# Visual Studio / Rider cache
+.vs/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Test results
+[Tt]est[Rr]esult*/
+TestResults/
+*.coverage
+coverage*.xml
+
+# NuGet
+*.nupkg
+packages/
+project.lock.json
+
+# OS junk
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Внутренние материалы — только локально, в репозиторий не публиковать
+/Store/
+/docs/
+/PLAN.md
+/AGENTS.md
+/check_tray.ps1
+/launch.ps1
+/src/TranslucentTabBar/Package.appxmanifest

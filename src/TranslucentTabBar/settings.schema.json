@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema#",
+  "title": "TranslucentTabBar Settings Schema",
+  "$defs": {
+    "TaskbarAppearance": {
+      "properties": {
+        "accent": {
+          "enum": ["normal", "opaque", "clear", "blur", "acrylic"],
+          "type": "string",
+          "description": "The visual effect to apply to the taskbar"
+        },
+        "color": {
+          "pattern": "^#([A-Fa-f0-9]{3}|[A-Fa-f0-9]{4}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$",
+          "type": "string",
+          "format": "color",
+          "description": "ARGB hex color for the taskbar tint"
+        },
+        "show_peek": {
+          "type": "boolean",
+          "description": "Show the Aero Peek button (Windows 10)"
+        },
+        "show_line": {
+          "type": "boolean",
+          "description": "Show the taskbar line (Windows 11)"
+        },
+        "blur_radius": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 750,
+          "description": "Blur radius for Blur/Acrylic effects"
+        }
+      },
+      "type": "object"
+    },
+    "OptionalTaskbarAppearance": {
+      "allOf": [
+        {
+          "properties": {
+            "enabled": {
+              "type": "boolean",
+              "description": "Whether this dynamic mode is enabled"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "$ref": "#/$defs/TaskbarAppearance"
+        }
+      ]
+    },
+    "RuledTaskbarAppearance": {
+      "allOf": [
+        {
+          "properties": {
+            "rules": {
+              "properties": {
+                "class": {
+                  "additionalProperties": { "$ref": "#/$defs/ActiveInactiveAppearance" },
+                  "type": "object",
+                  "description": "Per-window-class rules"
+                },
+                "title": {
+                  "additionalProperties": { "$ref": "#/$defs/ActiveInactiveAppearance" },
+                  "type": "object",
+                  "description": "Per-window-title rules"
+                },
+                "file": {
+                  "additionalProperties": { "$ref": "#/$defs/ActiveInactiveAppearance" },
+                  "type": "object",
+                  "description": "Per-window-executable rules"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "type": "object"
+        },
+        {
+          "$ref": "#/$defs/OptionalTaskbarAppearance"
+        }
+      ]
+    },
+    "ActiveInactiveAppearance": {
+      "properties": {
+        "active": { "$ref": "#/$defs/TaskbarAppearance" },
+        "inactive": { "$ref": "#/$defs/TaskbarAppearance" }
+      },
+      "type": "object"
+    }
+  },
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Path to this schema file"
+    },
+    "desktop_appearance": { "$ref": "#/$defs/TaskbarAppearance" },
+    "visible_window_appearance": { "$ref": "#/$defs/RuledTaskbarAppearance" },
+    "maximized_window_appearance": { "$ref": "#/$defs/RuledTaskbarAppearance" },
+    "start_opened_appearance": { "$ref": "#/$defs/OptionalTaskbarAppearance" },
+    "search_opened_appearance": { "$ref": "#/$defs/OptionalTaskbarAppearance" },
+    "task_view_opened_appearance": { "$ref": "#/$defs/OptionalTaskbarAppearance" },
+    "battery_saver_appearance": { "$ref": "#/$defs/OptionalTaskbarAppearance" },
+    "ignored_windows": {
+      "items": { "type": "string" },
+      "type": "array",
+      "description": "List of window class names to ignore"
+    },
+    "hide_tray": {
+      "type": "boolean",
+      "description": "Hide the system tray icon"
+    },
+    "disable_saving": {
+      "type": "boolean",
+      "description": "Prevent saving configuration changes"
+    },
+    "language": {
+      "pattern": "^[a-z]{2}(-[A-Z]{2})?$",
+      "type": "string",
+      "description": "UI language code (e.g. en-US, ru-RU)"
+    },
+    "verbosity": {
+      "enum": ["trace", "debug", "info", "warn", "err", "critical", "off"],
+      "type": "string",
+      "description": "Log verbosity level"
+    },
+    "use_xaml_context_menu": {
+      "type": "boolean",
+      "description": "Use XAML-based context menu instead of Win32"
+    },
+    "copy_dlls": {
+      "type": "boolean",
+      "description": "Copy DLLs for portable mode"
+    }
+  },
+  "type": "object"
+}
