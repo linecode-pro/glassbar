@@ -20,6 +20,10 @@ public class TaskbarService : IDisposable
     private int _tapAttemptInProgress;
     private int _tapFailureStreak;
     private DateTime _nextTapAttemptUtc;
+    private int _tapRetryLoopRunning;
+    private TaskbarAppearance? _lastAppearance;
+    private Timer? _reapplyTimer;
+    private bool _warnedLegacyFallback;
 
     /// <summary>
     /// Raised when the ExplorerTAP appearance service becomes available. Fires on a
@@ -38,6 +42,11 @@ public class TaskbarService : IDisposable
             return;
         }
 
+        // At logon we can start long before Explorer finished building the taskbar XAML, and
+        // with an idle desktop no state change would ever re-trigger an attempt - so retry
+        // on our own schedule instead of relying on external refresh events.
+        StartTapRetryLoop();
+
         if (DateTime.UtcNow < _nextTapAttemptUtc) return;
         if (Interlocked.CompareExchange(ref _tapAttemptInProgress, 1, 0) != 0) return;
 
@@ -45,6 +54,36 @@ public class TaskbarService : IDisposable
         // longer than that (Explorer still starting, unsigned payload being scanned), so
         // this runs outside the UI thread and is retried until Explorer reports ready.
         _ = Task.Run(TryInjectExplorerTapAsync);
+    }
+
+    private void StartTapRetryLoop()
+    {
+        if (_tapInitialized || _disposed) return;
+        if (Interlocked.CompareExchange(ref _tapRetryLoopRunning, 1, 0) != 0) return;
+
+        _ = Task.Run(async () =>
+        {
+            try
+            {
+                while (!_tapInitialized && !_disposed)
+                {
+                    double seconds = Math.Max(2.0, (_nextTapAttemptUtc - DateTime.UtcNow).TotalSeconds);
+                    await Task.Delay(TimeSpan.FromSeconds(seconds));
+
+                    if (_tapInitialized || _disposed) return;
+
+                    // Explorer not up yet (or restarting) - just keep waiting.
+                    if (User32.FindWindowW("Shell_TrayWnd", null) == nint.Zero) continue;
+                    if (Interlocked.CompareExchange(ref _tapAttemptInProgress, 1, 0) != 0) continue;
+
+                    TryInjectExplorerTapAsync();
+                }
+            }
+            finally
+            {
+                Volatile.Write(ref _tapRetryLoopRunning, 0);
+            }
+        });
     }
 
     private void TryInjectExplorerTapAsync()
@@ -67,6 +106,7 @@ public class TaskbarService : IDisposable
                 _tapFailureStreak = 0;
                 if (!_disposed)
                 {
+                    StartReapplyTimer();
                     TapBecameAvailable?.Invoke();
                 }
             }
@@ -101,6 +141,15 @@ public class TaskbarService : IDisposable
             {
                 _logger?.Error($"ExplorerTAP.dll not found at {sourceDll}");
                 return false;
+            }
+
+            // A previous failed attempt may have left the named ready event set while
+            // nothing inside Explorer will ever set it again for a fresh injection.
+            // Reset it so the wait below reflects this attempt instead of returning
+            // instantly against a stale state.
+            if (_tapFailureStreak > 0)
+            {
+                ResetStaleTapReadyEvent();
             }
 
             string loadDll;
@@ -183,6 +232,61 @@ public class TaskbarService : IDisposable
         _tapInitialized = false;
         _tapFailureStreak = 0;
         _nextTapAttemptUtc = DateTime.MinValue;
+        _warnedLegacyFallback = false;
+        _reapplyTimer?.Dispose();
+        _reapplyTimer = null;
+    }
+
+    /// <summary>
+    /// Resets the named TAP ready event if a previous failed attempt left it set. While
+    /// Explorer keeps the DLL mapped nothing will set it again, so a fresh injection would
+    /// otherwise sail through the wait and fail on the missing COM object every time.
+    /// </summary>
+    private void ResetStaleTapReadyEvent()
+    {
+        try
+        {
+            var hEvent = Kernel32.OpenEventW(0x0002 /* EVENT_MODIFY_STATE */, false, "TTBTAP_Ready");
+            if (hEvent != nint.Zero)
+            {
+                Kernel32.ResetEvent(hEvent);
+                Kernel32.CloseHandle(hEvent);
+                _logger?.Info("Reset a stale TTBTAP_Ready event before retrying injection");
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger?.Debug($"ResetStaleTapReadyEvent failed: {ex.Message}");
+        }
+    }
+
+    /// <summary>
+    /// The taskbar registers with the TAP only after its XAML tree finished building, which
+    /// can happen long after the injection succeeded (typically at logon). Re-apply the last
+    /// appearance periodically so a late registration is painted as well.
+    /// </summary>
+    private void StartReapplyTimer()
+    {
+        if (_disposed || _reapplyTimer != null) return;
+
+        _reapplyTimer = new Timer(_ =>
+        {
+            try
+            {
+                if (_disposed || !_tapInitialized) return;
+
+                var appearance = _lastAppearance;
+                if (appearance != null)
+                {
+                    ApplyAppearance(appearance);
+                    _logger?.Debug("Periodic appearance re-apply performed");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger?.Warn($"Periodic appearance re-apply failed: {ex.Message}");
+            }
+        }, null, TimeSpan.FromSeconds(15), TimeSpan.FromSeconds(30));
     }
 
     /// <summary>
@@ -253,6 +357,7 @@ public class TaskbarService : IDisposable
     /// </summary>
     public void ApplyAppearance(TaskbarAppearance appearance)
     {
+        _lastAppearance = appearance;
         var taskbars = DiscoverTaskbars();
         foreach (var (hwnd, _) in taskbars)
         {
@@ -331,6 +436,12 @@ public class TaskbarService : IDisposable
         }
 
         // 2. ACCENT_POLICY structure for DWM / legacy taskbars (Windows 10 or fallback)
+        if (Environment.OSVersion.Version.Build >= 22000 && _appearanceService == null && !_warnedLegacyFallback)
+        {
+            _warnedLegacyFallback = true;
+            _logger?.Warn("TaskbarAppearanceService is not attached - applied via the legacy composition API, which has no visible effect on this Windows 11 build. Injection will keep retrying in the background.");
+        }
+
         var policy = new ACCENT_POLICY
         {
             AccentState = accentState,
@@ -513,6 +624,8 @@ public class TaskbarService : IDisposable
     {
         if (_disposed) return;
         _disposed = true;
+        _reapplyTimer?.Dispose();
+        _reapplyTimer = null;
         ResetToDefault();
     }
 }

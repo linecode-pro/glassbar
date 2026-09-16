@@ -55,3 +55,6 @@ Desktop.ini
 /check_tray.ps1
 /launch.ps1
 /src/TranslucentTabBar/Package.appxmanifest
+
+# VS Store association (служебный, содержит данные аккаунта издателя)
+/src/TranslucentTabBar/Package.StoreAssociation.xml

@@ -46,4 +46,13 @@ internal static partial class Kernel32
 
     [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Ansi, ExactSpelling = true)]
     public static extern nint GetProcAddress(nint hModule, string procName);
+
+    [DllImport("kernel32.dll", EntryPoint = "OpenEventW", SetLastError = true, CharSet = CharSet.Unicode)]
+    public static extern nint OpenEventW(uint desiredAccess, bool inheritHandle, string name);
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    public static extern bool ResetEvent(nint hEvent);
+
+    [DllImport("kernel32.dll", SetLastError = true)]
+    public static extern bool CloseHandle(nint hObject);
 }

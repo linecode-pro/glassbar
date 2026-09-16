@@ -157,9 +157,28 @@
     <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
   </PropertyGroup>
 
-  <!-- Publish Properties - only apply during publish, not regular build -->
+  <!--
+    Microsoft Store / sideload MSIX packaging (mirrors the ProxyToggle sample repo).
+    AppxSymbolPackageEnabled=false: the symbol-package targets look for mspdbcmf.exe
+    in the dotnet SDK's AppxPackage folder, where the tool does not exist, which fails
+    Release builds (MSB6011 in WinAppSdkCheckFastlinkPdb). The Store does not require
+    the .appxsym symbol package.
+  -->
   <PropertyGroup>
+    <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <GenerateTestArtifacts>False</GenerateTestArtifacts>
+    <AppxBundle>Never</AppxBundle>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
     <PublishTrimmed>false</PublishTrimmed>
+    <IsTrimmable>false</IsTrimmable>
     <PublishReadyToRun>false</PublishReadyToRun>
+    <AppxBundlePlatforms>x64</AppxBundlePlatforms>
+    <AppxPackageDir>D:\VisualStudio_Apps\AppPackages\</AppxPackageDir>
   </PropertyGroup>
 </Project>
