@@ -6,7 +6,7 @@ namespace TranslucentTabBar.Services;
 public class LoggerService : IDisposable
 {
     private readonly string _logPath = string.Empty;
-    private readonly StreamWriter _writer = null!;
+    private readonly StreamWriter? _writer;
     private readonly object _lock = new();
     private bool _disposed;
 
@@ -14,9 +14,23 @@ public class LoggerService : IDisposable
     {
         try
         {
-            var logDir = Path.Combine(
-                Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "TranslucentTabBar");
+            // For a packaged app, writes into %LOCALAPPDATA%\<name> get virtualized into
+            // Packages\<family>\LocalCache: the log then only becomes visible to other
+            // processes (and to us from outside) after the app exits. The package
+            // LocalState is a real on-disk path that is immediately visible everywhere -
+            // use it when available.
+            string logDir;
+            try
+            {
+                logDir = Path.Combine(Windows.Storage.ApplicationData.Current.LocalFolder.Path, "logs");
+            }
+            catch
+            {
+                logDir = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                    "TranslucentTabBar");
+            }
+
             Directory.CreateDirectory(logDir);
 
             _logPath = Path.Combine(logDir, $"log-{DateTime.Now:yyyy-MM-dd}.txt");
@@ -24,10 +38,28 @@ public class LoggerService : IDisposable
 
             Log(LogLevel.Info, "=== TranslucentTabBar started ===");
         }
-        catch
+        catch (Exception ex)
         {
-            // Logging infrastructure failure is non-fatal
-            _writer = null!;
+            // Logging infrastructure failure is non-fatal, but never swallow it
+            // silently - a blind app is undiagnosable.
+            _writer = null;
+            try
+            {
+                System.Diagnostics.Debug.WriteLine($"LoggerService failed to initialize: {ex}");
+            }
+            catch { }
+        }
+    }
+
+    /// <summary>
+    /// The directory the current log file is written to (for diagnostics UI).
+    /// </summary>
+    public string LogDirectory
+    {
+        get
+        {
+            var dir = Path.GetDirectoryName(_logPath);
+            return string.IsNullOrEmpty(dir) ? "." : dir;
         }
     }
 

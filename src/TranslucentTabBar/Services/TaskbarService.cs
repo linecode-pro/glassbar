@@ -155,12 +155,40 @@ public class TaskbarService : IDisposable
             string loadDll;
             if (IsPackaged)
             {
-                // A copy under %LOCALAPPDATA% of a packaged app lives inside the package's
-                // virtualized storage (Packages\<family>\LocalCache\...), and Windows silently
-                // refuses to map such a DLL into Explorer through the WH_CALLWNDPROC hook -
-                // injection then times out with WAIT_TIMEOUT. Load the DLL straight from the
-                // package directory, which Explorer is able to read and hook-load.
-                loadDll = sourceDll;
+                // Upstream TranslucentTB (Store-proven): "copy the file over to a place
+                // Explorer can read. It can't be injected from WindowsApps." A dev-registered
+                // package usually lives on a normal drive where injecting from the package
+                // folder accidentally works, which is why this only breaks Store installs.
+                // Copy into the package LocalState\TempState and load that copy.
+                // Do NOT use %LOCALAPPDATA%\<name>: such writes get virtualized into
+                // Packages\<family>\LocalCache, a path invisible to Explorer's filesystem view.
+                string destDll;
+                try
+                {
+                    string tempState = Path.Combine(
+                        Windows.Storage.ApplicationData.Current.LocalFolder.Path, "TempState");
+                    Directory.CreateDirectory(tempState);
+                    destDll = Path.Combine(tempState, "ExplorerTAP.dll");
+                    if (!File.Exists(destDll) || File.GetLastWriteTimeUtc(sourceDll) > File.GetLastWriteTimeUtc(destDll))
+                    {
+                        File.Copy(sourceDll, destDll, true);
+                    }
+                }
+                catch (IOException ex)
+                {
+                    // In use = Explorer still has the previous copy mapped; resolves itself
+                    // the next time Explorer restarts.
+                    destDll = string.Empty;
+                    _logger?.Warn($"Could not refresh ExplorerTAP.dll in TempState (in use?): {ex.Message}");
+                }
+                catch (Exception ex)
+                {
+                    destDll = string.Empty;
+                    _logger?.Warn($"Could not copy ExplorerTAP.dll to TempState: {ex.Message}");
+                }
+
+                loadDll = File.Exists(destDll) ? destDll : sourceDll;
+                _logger?.Info($"ExplorerTAP will be loaded from: {loadDll}");
             }
             else
             {
